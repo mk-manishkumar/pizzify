@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <title>Pizzify - Elevate your pizza experience with every bite</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="src/app.js" defer></script>
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="head">Pizzify</h1>
+      <div class="cart-icons">
+        <i class="fa-solid fa-cart-shopping" id="cart"></i>
+        <span class="cart-count">0</span>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- carousel -->
+      <div class="carousel">
+        <div class="carousel-item item-visible">
+          <img src="images/carousel-1.jpg" alt="image-1" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/carousel-2.jpg" alt="image-2" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/carousel-3.jpg" alt="image-3" />
+        </div>
+        <div class="buttons">
+          <button id="prev"><</button>
+          <button id="next">></button>
+        </div>
+      </div>
+      <!-- end of carousel -->
+
+      <!-- pizza-section -->
+      <div class="pizza-section">
+        <div class="filter-section">
+          <button id="all">ALL</button>
+          <button id="veg">VEG</button>
+          <button id="non-veg">NON VEG</button>
+        </div>
+        <div class="pizzas">
+          <div class="pizza veg" id="pizza-1">
+            <img
+              src="images/Deluxe_Veggie.jpg"
+              alt="Deluxe Veggie"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Deluxe Veggie</h3>
+            <p>
+              Deluxe Veggie pizza is a mouthwatering delight, loaded with fresh
+              vegetables and a tantalizing blend of flavors.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">149</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+          <div class="pizza non-veg" id="pizza-2">
+            <img
+              src="images/chicken_fiesta.png"
+              alt="chicken fiesta"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Chicken Fiesta</h3>
+            <p>
+              Chicken Fiesta pizza is a flavor-packed fiesta with succulent
+              chicken, zesty spices, and a burst of vibrant toppings.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">199</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+          <div class="pizza veg" id="pizza-3">
+            <img
+              src="images/Mexican_Green_Wave.jpg"
+              alt="Mexican Green Wave"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Green Wave</h3>
+            <p>
+              Mexican Green Wave pizza is a fiesta for your taste buds,
+              featuring zesty Mexican flavors and a refreshing green medley.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">149</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+          <div class="pizza non-veg" id="pizza-4">
+            <img
+              src="images/CHICKEN_PEPPERONI.png"
+              alt="CHICKEN PEPPERONI"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Chicken Pepperoni</h3>
+            <p>
+              Chicken Pepperoni pizza is a delicious fusion of savory chicken
+              and classic pepperoni, delivering a satisfying and flavorful
+              experience.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">199</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+          <div class="pizza veg" id="pizza-5">
+            <img
+              src="images/Peppy_Paneer.jpg"
+              alt="Peppy Paneer"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Peppy Paneer</h3>
+            <p>
+              Peppy Paneer pizza is a vegetarian delight, combining tangy paneer
+              cheese with a burst of spicy flavors.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">149</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+          <div class="pizza non-veg" id="pizza-6">
+            <img
+              src="images/chicken_sausage.png"
+              alt="chicken sausage"
+              class="pizza-image"
+            />
+            <h3 class="pizza-title">Chicken Sausage</h3>
+            <p>
+              Chicken Sausage pizza is a savory delight, boasting juicy chicken
+              sausage and a perfect balance of flavors.
+            </p>
+            <div class="price-quantity">
+              <h4 class="quantity">
+                Quantity:
+                <div class="pizza-count">
+                  <span class="decrease-count">-</span>
+                  <button class="count-value">1</button>
+                  <span class="increase-count">+</span>
+                </div>
+              </h4>
+              <h4 class="price">₹<span class="pizza-price">199</span></h4>
+            </div>
+            <button class="btn-cart addToCart">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cart-window -->
+    <div class="cart-section">
+      <h2 class="cart-heading">Your Cart is here!</h2>
+      <div class="clear-btn">
+        <button class="clear-all">Clear All</button>
+      </div>
+
+      <div class="cart-container">
+        <div class="cart-list"></div>
+        <div class="cart-order">
+          <div class="price-table">
+            <h2>Grand Total : ₹<span class="grand-total">0</span></h2>
+            <button class="order-btn">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- order-window -->
+    <div class="order-section"></div>
+
+    <!-- confirmation-section -->
+    <div class="confirmation-section">
+      <p>Your order is completed. It will be delivered within 30 minutes.</p>
+      <button class="exit-btn">Exit</button>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2023, Pizzify - All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
