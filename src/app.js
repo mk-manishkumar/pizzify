@@ -171,10 +171,12 @@ let pizzaList = document.querySelector(".cart-list");
 const cartHeading = document.querySelector(".cart-heading");
 const cartSection = document.querySelector(".cart-section");
 const cartCount = document.querySelector(".cart-count");
+const cartContainer = document.querySelector(".cart-container");
 const grandTotal = document.querySelector(".grand-total");
 const orderBtn = document.querySelector(".order-btn");
 const orderSection = document.querySelector(".order-section");
 const confSec = document.querySelector(".confirmation-section");
+const clearBtn = document.querySelector(".clear-btn");
 confSec.style.display = "none";
 cartSection.style.display = "none";
 
@@ -230,6 +232,7 @@ function orderItems() {
 
 // exit btn
 document.querySelector(".exit-btn").addEventListener("click", () => {
+  localStorage.clear();
   location.reload();
 });
 
@@ -238,17 +241,21 @@ function checkCart() {
   if (pizzas.length < 1) {
     cartSection.style.minHeight = "80vh";
     cartCount.style.display = "none";
+    clearBtn.style.display = "none";
+    cartContainer.style.display = "none";
     cartHeading.textContent = "Cart is empty";
-    orderBtn.disabled = true;
   } else {
     cartSection.style.minHeight = "auto";
     cartHeading.textContent = "Your Cart is here!";
     cartCount.style.display = "flex";
+    clearBtn.style.display = "flex";
+    cartContainer.style.display = "grid";
     cartCount.textContent = pizzas.length;
-    orderBtn.disabled = false;
     orderItems();
   }
 }
+
+checkCart();
 
 cartEl.addEventListener("click", () => {
   containerEl.style.display = "none";
