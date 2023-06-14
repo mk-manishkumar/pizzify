@@ -183,6 +183,7 @@ cartSection.style.display = "none";
 // function -> when user will click order button
 function orderItems() {
   orderBtn.addEventListener("click", () => {
+    orderSection.style.display = "block";
     cartSection.style.display = "none";
     orderSection.innerHTML = `
     <h2>SHOPPING CART</h2>
@@ -265,6 +266,8 @@ checkCart();
 
 cartEl.addEventListener("click", () => {
   containerEl.style.display = "none";
+  confSec.style.display = "none";
+  orderSection.style.display = "none";
   cartSection.style.display = "block";
 });
 
