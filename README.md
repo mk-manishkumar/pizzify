@@ -1,6 +1,6 @@
 # Pizzify
 
-This is a simple shopping cart application built with HTML, CSS, and JavaScript. It allows users to add items to their cart, view the total amount, and place an order by providing their personal information.
+This is a simple shopping cart application built with HTML, CSS, and JavaScript for Pizza lovers. It allows users to add items to their cart, view the total amount, and place an order by providing their personal information.
 
 [Live Link](https://pizzify.netlify.app/)
 
