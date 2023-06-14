@@ -249,11 +249,17 @@ function checkCart() {
     cartHeading.textContent = "Your Cart is here!";
     cartCount.style.display = "flex";
     clearBtn.style.display = "flex";
-    cartContainer.style.display = "grid";
+    if (window.innerWidth < 725) {
+      cartContainer.style.display = "flex";
+    } else {
+      cartContainer.style.display = "grid";
+    }
     cartCount.textContent = pizzas.length;
     orderItems();
   }
 }
+
+window.addEventListener("resize", checkCart);
 
 checkCart();
 
