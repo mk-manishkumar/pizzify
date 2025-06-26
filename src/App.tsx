@@ -1,12 +1,39 @@
-import React from 'react'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {Home} from "./pages/Home";
+import {Cart} from "./pages/Cart";
+import {Checkout} from "./pages/Checkout";
+import { PizzaDetails } from "./pages/PizzaDetails";
+import { ErrorPage } from "./pages/ErrorPage";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/pizza/:slug",
+    element: <PizzaDetails/>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
+  },
+]);
 
 const App = () => {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold">Welcome to Pizzify</h1>
-      <p className="mt-4 text-lg">Your one-stop solution for all pizza needs!</p>
-    </div>
-  )
-}
+  return <RouterProvider router={appRouter} />;
+};
 
-export default App
+export default App;
