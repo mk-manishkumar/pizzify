@@ -13,7 +13,7 @@ export const ErrorPage: React.FC = () => {
         <h1 className="text-6xl font-extrabold text-indigo-600 mb-4">Oops!</h1>
         <p className="text-2xl font-semibold text-gray-800 mb-2">Something went wrong</p>
         <p className="text-md text-gray-600 mb-6">The page you’re looking for doesn’t exist or there was a server error.</p>
-        <button onClick={() => navigate("/")} className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer">
+        <button onClick={() => navigate("/")} className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer p-2 text-white">
           Go to Home
         </button>
       </div>
