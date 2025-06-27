@@ -1,4 +1,5 @@
 import { Pizzas } from "./Pizzas";
+// import { pizzas } from "../../data/pizzas";
 
 export const PizzaSection = () => {
   return (
