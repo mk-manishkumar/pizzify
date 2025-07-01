@@ -35,7 +35,7 @@ export const PizzaDetails = () => {
           <p className="text-lg text-gray-300 mb-4">{pizza.description}</p>
           <p className="bg-yellow-400 w-20 text-center text-black rounded py-1 mb-4">{pizza.category}</p>
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+            <span className="text-yellow-400">⭐</span>
             <span className="text-white">
               {pizza.rating} ({pizza.ratingsCount} reviews)
             </span>
