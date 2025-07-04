@@ -24,9 +24,9 @@ export const PizzaDetails = () => {
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-zinc-800 p-10 text-white grid md:grid-cols-2 gap-10 items-center ">
+      <div className="flex-grow bg-zinc-900 p-5 text-white grid md:grid-cols-2 gap-10 items-center ">
         <div>
           <img src={pizza.image} alt={pizza.name} className="w-full max-w-md mx-auto rounded-lg" />
         </div>
@@ -57,6 +57,6 @@ export const PizzaDetails = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };

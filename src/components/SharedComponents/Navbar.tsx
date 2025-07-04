@@ -10,7 +10,9 @@ export const Navbar = () => {
         </Link>
       </div>
       <div>
-        <ShoppingCart className="md:mr-32 cursor-pointer w-5 h-5 md:w-10 md:h-10" />
+        <Link to={"/cart"}>
+          <ShoppingCart className="md:mr-32 cursor-pointer w-5 h-5 md:w-10 md:h-10" />
+        </Link>
       </div>
     </div>
   );
