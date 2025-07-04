@@ -8,7 +8,7 @@ export const PizzaSection = () => {
   const filteredPizzas = pizzaData.filter((pizza) => (category === "all" ? true : pizza.category === category));
 
   return (
-    <div className="bg-zinc-800 p-5">
+    <div className="bg-zinc-900 p-5">
       {/* FILTER BUTTONS */}
       <div className="flex justify-center items-center gap-4 my-4 max-[300px]:flex-col">
         {["all", "veg", "non-veg"].map((type) => (
