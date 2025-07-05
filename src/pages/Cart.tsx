@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/SharedComponents/Footer";
 import { Navbar } from "../components/SharedComponents/Navbar";
 import { pizzas } from "../data/pizzas";
 
 export const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -40,7 +47,9 @@ export const Cart = () => {
 
           {/* Checkout Button */}
           <div className="mt-10 flex justify-end">
-            <button className="cursor-pointer bg-green-500 text-white px-6 py-2 rounded hover:bg-green-800 transition duration-300 font-bold">Proceed to Checkout</button>
+            <button onClick={handleCheckout} className="w-full font-semibold cursor-pointer px-2 md:px-5 py-2 md:w-auto bg-green-500 hover:bg-green-800 text-sm sm:text-base block mx-auto md:mx-0">
+              Proceed to Checkout
+            </button>
           </div>
         </div>
       </div>
