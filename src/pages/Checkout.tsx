@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { Footer } from "../components/SharedComponents/Footer";
 import { Navbar } from "../components/SharedComponents/Navbar";
 
 export const Checkout = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
+  const PLATFORM_FEE = 3;
+  const DELIVERY_CHARGE = 10;
+
+  
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -15,25 +26,25 @@ export const Checkout = () => {
                 <label htmlFor="name" className="block mb-2">
                   Name
                 </label>
-                <input id="name" type="text" placeholder="Enter your name" className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm" />
+                <input id="name" type="text" placeholder="Enter your name" value={name} className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm" onChange={(e) => setName(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="email" className="block mb-2">
                   Email
                 </label>
-                <input id="email" type="email" placeholder="you@example.com" className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm " />
+                <input id="email" type="email" placeholder="you@example.com" value={email} className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm " onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="mobile" className="block mb-2">
                   Mobile Number
                 </label>
-                <input id="mobile" type="tel" placeholder="+1 234 567 8901" className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm " />
+                <input id="mobile" type="tel" placeholder="+1 234 567 8901" value={phone} className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm " onChange={(e) => setPhone(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="address" className="block mb-2">
                   Address
                 </label>
-                <textarea id="address" rows={5} className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm resize-none" placeholder="123 Street, City, Country" />
+                <textarea id="address" rows={5} value={address} className="w-full bg-zinc-600 outline-0 px-3 py-2 rounded text-sm resize-none" placeholder="123 Street, City, Country" onChange={(e) => setAddress(e.target.value)} />
               </div>
             </form>
           </div>
