@@ -5,8 +5,11 @@ import type { Pizza } from "../data/pizzas";
 import { slugify } from "../utils/slugify";
 import { Navbar } from "../components/SharedComponents/Navbar";
 import { Footer } from "../components/SharedComponents/Footer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 export const PizzaDetails = () => {
+  const dispatch = useDispatch();
   const { slug } = useParams();
   const [pizza, setPizza] = useState<Pizza | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -46,13 +49,28 @@ export const PizzaDetails = () => {
             <button onClick={decrement} className="cursor-pointer px-4 py-2 text-black-600 text-xl border-r">
               -
             </button>
-            <div className="px-6 py-2 text-black-600 text-lg border-r">{quantity}</div>
+            <div className="px-6 py-2 text-black text-lg border-r">{quantity}</div>
             <button onClick={increment} className="cursor-pointer px-4 py-2 text-black-600 text-xl">
               +
             </button>
           </div>
           <div className="mt-6">
-            <button className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 font-bold">ADD TO CART</button>
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: pizza.id,
+                    name: pizza.name,
+                    price: pizza.price,
+                    image: pizza.image,
+                    quantity,
+                  })
+                )
+              }
+              className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 font-bold cursor-pointer"
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>
