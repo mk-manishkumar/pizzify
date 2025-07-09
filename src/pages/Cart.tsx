@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/SharedComponents/Footer";
 import { Navbar } from "../components/SharedComponents/Navbar";
-import { pizzas } from "../data/pizzas";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 
 export const Cart = () => {
   const navigate = useNavigate();
+  const cart = useSelector((state: RootState) => state.reducer.cart);
 
   const handleCheckout = () => {
     navigate("/checkout");
@@ -27,7 +29,7 @@ export const Cart = () => {
             <p className="text-right">Total</p>
           </div>
           {/* Cart Item */}
-          {pizzas.map((pizza) => (
+          {cart.map((pizza) => (
             <div key={pizza.id} className="grid grid-cols-1 sm:grid-cols-4 items-center py-4 border-b text-sm">
               <div className="col-span-2">
                 <h3 className="text-gray-400 font-semibold">{pizza.name}</h3>

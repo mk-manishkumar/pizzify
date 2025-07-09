@@ -49,7 +49,7 @@ export const PizzaDetails = () => {
             <button onClick={decrement} className="cursor-pointer px-4 py-2 text-black-600 text-xl border-r">
               -
             </button>
-            <div className="px-6 py-2 text-black text-lg border-r">{quantity}</div>
+            <div className="px-6 py-2 text-lg border-r">{quantity}</div>
             <button onClick={increment} className="cursor-pointer px-4 py-2 text-black-600 text-xl">
               +
             </button>
@@ -63,6 +63,7 @@ export const PizzaDetails = () => {
                     name: pizza.name,
                     price: pizza.price,
                     image: pizza.image,
+                    category: pizza.category,
                     quantity,
                   })
                 )
