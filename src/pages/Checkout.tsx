@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Footer } from "../components/SharedComponents/Footer";
 import { Navbar } from "../components/SharedComponents/Navbar";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 
 export const Checkout = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+
+  const cart = useSelector((state: RootState) => state.reducer.cart);
 
   const PLATFORM_FEE = 3;
   const DELIVERY_CHARGE = 10;
@@ -52,7 +56,7 @@ export const Checkout = () => {
           <div className="lg:w-1/3 w-full border rounded-md p-6 bg-gray-300 text-black">
             <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
             <div className="flex justify-between mb-2">
-              <span className="text-gray-700">Items(3)</span>
+              <span className="text-gray-700">Items({cart.length})</span>
               <span className="font-semibold">₹159</span>
             </div>
             <div className="flex justify-between mb-2">
