@@ -1,16 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/SharedComponents/Footer";
 import { Navbar } from "../components/SharedComponents/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
+import { removeItem, decrementQuantity, incrementQuantity } from "../redux/cartSlice";
 
 export const Cart = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.reducer.cart);
 
   const handleCheckout = () => {
     navigate("/checkout");
   };
+
+  const increment = (id: number) => dispatch(incrementQuantity(id));
+  const decrement = (id: number) => dispatch(decrementQuantity(id));
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,7 +25,9 @@ export const Cart = () => {
           {/* Cart Head */}
           <div className="flex justify-between mb-10">
             <h2 className="font-semibold text-2xl">Shopping Cart</h2>
-            <h2 className="font-semibold text-2xl">1 item</h2>
+            <h2 className="font-semibold text-2xl">
+              {cart.length} {cart.length > 1 ? "items" : "item"}
+            </h2>
           </div>
           {/* Table Head */}
           <div className="hidden sm:grid grid-cols-4 text-gray-400 text-sm font-semibold border-b pb-2">
@@ -34,15 +41,21 @@ export const Cart = () => {
               <div className="col-span-2">
                 <h3 className="text-gray-400 font-semibold">{pizza.name}</h3>
                 <h3 className="text-yellow-400">{pizza.category}</h3>
-                <button className="text-blue-500 mt-1 cursor-pointer">Remove</button>
+                <button onClick={() => dispatch(removeItem(pizza.id))} className="text-blue-500 mt-1 cursor-pointer">
+                  Remove
+                </button>
               </div>
               <div className="flex items-center gap-2 mt-2 sm:mt-0">
-                <button className="border px-2 cursor-pointer">-</button>
-                <span>1</span>
-                <button className="border px-2 cursor-pointer">+</button>
+                <button onClick={()=>decrement(pizza.id)} className="border px-2 cursor-pointer">
+                  -
+                </button>
+                <span>{pizza.quantity}</span>
+                <button onClick={()=>increment(pizza.id)} className="border px-2 cursor-pointer">
+                  +
+                </button>
               </div>
               <div className="text-right mt-2 sm:mt-0 font-medium">
-                <h3 className="text-gray-400 font-semibold">₹159</h3>
+                <h3 className="text-gray-400 font-semibold">₹{pizza.quantity * pizza.price}</h3>
               </div>
             </div>
           ))}
