@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { pizzas } from "../data/pizzas";
 import type { Pizza } from "../data/pizzas";
 import { slugify } from "../utils/slugify";
@@ -7,6 +7,7 @@ import { Navbar } from "../components/SharedComponents/Navbar";
 import { Footer } from "../components/SharedComponents/Footer";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 export const PizzaDetails = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,29 @@ export const PizzaDetails = () => {
   const [pizza, setPizza] = useState<Pizza | null>(null);
   const [quantity, setQuantity] = useState(1);
 
-  const increment = () => setQuantity((prev) => prev + 1);
-  const decrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const increment = useCallback(() => {
+    setQuantity((prev) => prev + 1);
+  }, []);
+
+  const decrement = useCallback(() => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  }, []);
 
   useEffect(() => {
     const match = pizzas.find((p) => slugify(p.name) === slug);
     setPizza(match || null);
   }, [slug]);
+
+  const addItemToCart = useCallback(() => {
+    if (!pizza) return;
+    dispatch(
+      addToCart({
+        ...pizza,
+        quantity,
+      })
+    );
+    toast.success(`${pizza?.name} added to cart!`);
+  }, [dispatch, pizza, quantity]);
 
   if (!pizza) {
     return <div className="text-white text-center mt-10">Pizza not found 🍕</div>;
@@ -55,26 +72,13 @@ export const PizzaDetails = () => {
             </button>
           </div>
           <div className="mt-6">
-            <button
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    id: pizza.id,
-                    name: pizza.name,
-                    price: pizza.price,
-                    image: pizza.image,
-                    category: pizza.category,
-                    quantity,
-                  })
-                )
-              }
-              className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 font-bold cursor-pointer"
-            >
+            <button onClick={addItemToCart} className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 font-bold cursor-pointer">
               ADD TO CART
             </button>
           </div>
         </div>
       </div>
+      <ToastContainer />
       <Footer />
     </div>
   );
